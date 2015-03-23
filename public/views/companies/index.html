@@ -1,0 +1,14 @@
+<div ng-controller="CompaniesController as companiesController">
+    <h1>Companies</h1>
+    <p><a class="btn btn-default" ui-sref="companies/new" role="button">New company</a>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <td>Name</td>
+                <td>Owner</td>
+            </thead>
+            <tr ng-repeat="company in companiesController.companies">
+                <td>{{company.name}}</td>
+                <td>{{company.owner}}</td>
+            </tr>
+        </table>
+</div>

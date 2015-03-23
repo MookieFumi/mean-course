@@ -1,0 +1,31 @@
+<div ng-controller="CompaniesController as companiesController">
+    <h1>Company</h1>
+    <form class="form-horizontal">
+        <fieldset>            
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="name">Company name</label>
+                <div class="col-md-5">
+                    <input ng-model="companiesController.company.name" id="name" name="name" type="text" placeholder="company name" class="form-control input-md" required="">
+                    <span class="help-block">Fill the company name</span>
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="owner">Owner name</label>
+                <div class="col-md-5">
+                    <input ng-model="companiesController.company.owner" id="owner" name="owner" type="text" placeholder="owner name" class="form-control input-md" required="">
+                    <span class="help-block">Fill the owner name</span>
+                </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="save"></label>
+                <div class="col-md-4">
+                    <a class="btn btn-default" ui-sref="companies">Go to index</a>
+                    <button id="save" name="save" class="btn btn-primary" ng-click="companiesController.add()">Save</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

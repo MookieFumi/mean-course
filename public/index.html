@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="stackApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mean Curso</title>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+    <style>
+    html,
+    body {
+        font-family: 'Ubuntu', sans-serif;
+    }
+    
+    body {
+        padding-top: 50px;
+    }
+    
+    .starter-template {
+        padding: 40px 15px;
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Mean Course</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse" ng-controller="MenuController as menu">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{'active': menu.isActive('home')}"><a ui-sref="home">Home</a></li>
+                    <li ng-class="{'active': menu.isActive('companies')}"><a ui-sref="companies">Companies</a></li>
+                    <li ng-class="{'active': menu.isActive('users')}"><a ui-sref="users">Users</a></li>
+                    <li ng-class="{'active': menu.isActive('offers')}"><a ui-sref="offers">Offers</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container" ui-view>       
+    </div>
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/menuController.js"></script>
+    <script src="services/companiesFactory.js"></script>
+    <script src="controllers/companiesController.js"></script>
+</body>
+
+</html>

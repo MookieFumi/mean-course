@@ -13,3 +13,5 @@ a JavaScript MVC framework for web apps
 
 * **Node.js**
 a software platform for scalable server-side and networking applications
+
+![MookieFumi](http://i.imgur.com/ZpPHxhr.png)

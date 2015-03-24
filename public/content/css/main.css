@@ -32,3 +32,23 @@ body > .container {
 .text-align-center {
     text-align: center;
 }
+
+.rounded {
+    border-radius: 1em 4em 1em 4em;
+    text-align: center;
+    min-height: 120px;
+}
+
+.rounded > h2 {
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.rounded.rounded-white {
+    background-color: #808080;
+    color: white;
+}
+
+.rounded.rounded-black {
+    background-color: #C8C8C8;
+}

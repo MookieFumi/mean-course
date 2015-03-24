@@ -1,5 +1,6 @@
 (function() {
-    angular.module('stackApp').directive('mooFooter', function($timeout) {
+
+    function mooFooter($timeout) {
         return {
             restrict: 'E',
             templateUrl: 'views/footer.html',
@@ -18,5 +19,8 @@
                 updateTimeLoaded();
             }
         };
-    });
+    }
+
+    angular.module('stackApp')
+        .directive('mooFooter', ['$timeout', mooFooter]);
 })();

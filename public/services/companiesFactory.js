@@ -1,4 +1,4 @@
-(function () {
+(function() {
 
     var companies = [{
         name: 'Company 1',
@@ -11,17 +11,18 @@
         owner: 'MontseFumi'
     }];
 
-    function companiesFactory () {
+    function companiesFactory() {
         return {
-            getAll: function () {
+            getAll: function() {
                 return companies;
             },
-            add: function (company) {
+            add: function(company) {
                 companies.push(company);
             }
         };
     }
 
-    angular.module('stackApp').factory('companiesFactory', companiesFactory);
+    angular.module('stackApp')
+        .factory('companiesFactory', companiesFactory);
 
 }());

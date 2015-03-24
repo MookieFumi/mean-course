@@ -6,6 +6,7 @@
         };
     }
 
-    angular.module('stackApp').controller('MenuController', menuController);
+	angular.module('stackApp')
+		.controller('MenuController', ['$state', menuController]);
 
 }());

@@ -5,7 +5,7 @@
         this.owner = "Owner demo";
     }
 
-    function companiesController(companiesFactory, $state) {
+    function CompaniesController(companiesFactory, $state) {
         this.companies = companiesFactory.getAll();
         this.company = new Company();
         
@@ -15,6 +15,7 @@
         }
     }
 
-    angular.module('stackApp').controller('CompaniesController', companiesController);
+    angular.module('stackApp')
+        .controller('CompaniesController', ['companiesFactory', '$state', CompaniesController]);
 
 }());

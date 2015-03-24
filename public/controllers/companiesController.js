@@ -8,7 +8,7 @@
     function companiesController(companiesFactory, $state) {
         this.companies = companiesFactory.getAll();
         this.company = new Company();
-        console.log("asdasdasd");
+        
         this.add = function() {
             companiesFactory.add(this.company);
             $state.go('companies');

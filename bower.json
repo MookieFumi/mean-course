@@ -1,0 +1,19 @@
+{
+  "name": "mean-course",
+  "version": "0.0.0",
+  "homepage": "https://github.com/MookieFumi/mean-course",
+  "authors": [
+    "MookieFumi <mookiefumi@outlook.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],   
+  "dependencies": {
+    "moment": "~2.9.0"
+  }
+}

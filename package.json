@@ -1,0 +1,23 @@
+{
+  "name": "mean-course",
+  "version": "1.0.0",
+  "description": "MEAN refers to first letters of the four components of a free and open-source solution stack for building dynamic web sites. MEAN is a full-stack JavaScript platform designed for web applications. Valeri Karpov was a MongoDB developer at that time, who coined the MEAN stack term, and tells about it in one of his blog posts. The components of the MEAN stack are as follows:",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MookieFumi/mean-course.git"
+  },
+  "author": "Miguel Angel Martin Hernandez <mookiefumi@outlook.com> (http://www.mookiefumi.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MookieFumi/mean-course/issues"
+  },
+  "homepage": "https://github.com/MookieFumi/mean-course",
+  "devDependencies": {
+    "express": "^4.12.3"
+  }
+}

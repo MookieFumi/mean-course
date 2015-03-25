@@ -1,20 +1,22 @@
 (function() {
 
-    var companies = [{
-        name: 'Company 1',
-        owner: 'MookieFumi'
-    }, {
-        name: 'Company 2',
-        owner: 'RaniFumi'
-    }, {
-        name: 'Company 3',
-        owner: 'MontseFumi'
-    }];
+    function companiesFactory($http) {
+        var companies = [];
 
-    function companiesFactory() {
         return {
+
             getAll: function() {
-                return companies;
+                var promise = $http.get('/companies/getAll')
+                    .success(function(data, status, headers, config) {
+                        return data;
+                    })
+                    .error(function(data, status, headers, config) {
+                        return {
+                            "status": false
+                        };
+                    });
+
+                return promise;
             },
             add: function(company) {
                 companies.push(company);
@@ -23,6 +25,6 @@
     }
 
     angular.module('stackApp')
-        .factory('companiesFactory', companiesFactory);
+        .factory('companiesFactory', ['$http', companiesFactory]);
 
 }());

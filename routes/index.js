@@ -23,4 +23,17 @@ router.get('/help/:content', function(req, res, next) {
     });
 });
 
+router.get('/companies/getAll', function(req, res, next) {
+    res.json([{
+        name: 'Company 1',
+        owner: 'MookieFumi'
+    }, {
+        name: 'Company 2',
+        owner: 'RaniFumi'
+    }, {
+        name: 'Company 3',
+        owner: 'MontseFumi'
+    }]);
+});
+
 module.exports = router;

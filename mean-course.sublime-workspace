@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"get",
+				"getAll"
+			],
+			[
+				"companies",
+				"companiesFactory"
+			],
+			[
+				"com",
+				"companies"
+			],
+			[
+				"compa",
+				"companies"
+			],
+			[
 				"we",
 				"webPanicoWeb"
 			],
@@ -16,10 +36,6 @@
 				"slowOperation"
 			],
 			[
-				"get",
-				"getResume"
-			],
-			[
 				"selec",
 				"selectShell"
 			],
@@ -30,14 +46,6 @@
 			[
 				"rou",
 				"rounded"
-			],
-			[
-				"mar",
-				"margin"
-			],
-			[
-				"com",
-				"components"
 			],
 			[
 				"a",
@@ -57,10 +65,6 @@
 			],
 			[
 				"comp",
-				"companiesFactory"
-			],
-			[
-				"compa",
 				"companiesFactory"
 			],
 			[
@@ -344,10 +348,27 @@
 	},
 	"expanded_folders":
 	[
-		"/C/temp/mean-course"
+		"/C/temp/mean-course",
+		"/C/temp/mean-course/public/services",
+		"/C/temp/mean-course/public/stylesheets"
 	],
 	"file_history":
 	[
+		"/C/temp/mean-course/public/controllers/companiesController.js",
+		"/C/temp/mean-course/public/services/companiesFactory.js",
+		"/C/temp/mean-course/public/index.html",
+		"/C/temp/mean-course/public/services/notificationFactory.js",
+		"/C/temp/mean-course/public/app.js",
+		"/C/temp/mean-course/public/stylesheets/style.css",
+		"/C/temp/mean-course/public/content/css/main.css",
+		"/C/temp/mean-course/bower.json",
+		"/C/temp/mean-course/public/views/companies/index.html",
+		"/C/temp/mean-course/public/controllers/menuController.js",
+		"/C/temp/mean-course/routes/index.js",
+		"/C/temp/mean-course/app.js",
+		"/C/temp/mean-course/views/help.jade",
+		"/C/temp/mean-course/bin/www",
+		"/C/temp/mean-course/mean-course.sublime-project",
 		"/C/temp/node-pet/server.js",
 		"/C/temp/kk/app.js",
 		"/C/temp/kk/myapp/package.json",
@@ -360,20 +381,14 @@
 		"/C/temp/node-pet/promises.js",
 		"/C/temp/node-pet/promises-not.js",
 		"/C/temp/kk/server.js",
-		"/C/temp/mean-course/public/index.html",
 		"/C/temp/mean-course/server.js",
 		"/C/temp/mean-course/package.json",
 		"/C/temp/kk/process.js",
 		"/C/temp/kk/age.js",
 		"/C/temp/kk/index.js",
 		"/C/temp/mean-course/README.md",
-		"/C/temp/mean-course/public/controllers/companiesController.js",
-		"/C/temp/mean-course/public/controllers/menuController.js",
 		"/C/temp/mean-course/public/directives/mooFooter.js",
-		"/C/temp/mean-course/public/services/companiesFactory.js",
-		"/C/temp/mean-course/public/app.js",
 		"/C/temp/mean-course/public/views/home.html",
-		"/C/temp/mean-course/public/content/css/main.css",
 		"/C/temp/mean-curso/server.js",
 		"/C/temp/mean-course/.gitignore",
 		"/C/temp/mean-curso/package.json",
@@ -466,20 +481,11 @@
 		"/C/temp/notifyCookiesPolicy/manifiest.json",
 		"/C/temp/notifyCookiesPolicy/bower_components/jquery/dist/jquery.js",
 		"/C/temp/lab/bower_components/jquery/bower.json",
-		"/C/temp/lab/bower_components/angular-toastr/bower.json",
-		"/C/temp/lab2/bower_components/angular-toastr/README.md",
-		"/C/temp/lab/index.html",
-		"/C/temp/lab/app/lab.js",
-		"/C/temp/lab/Gruntfile.js",
-		"/C/temp/lab/built.js",
-		"/C/Users/MookieFumi/Downloads/jquery-2.1.3/jquery-2.1.3/bower.json",
-		"/C/temp/lab/bower_components/jquery/.bower.json",
-		"/C/temp/lab/bower_components/angular/bower.json",
-		"/C/temp/lab/bower_components/angular/.bower.json"
+		"/C/temp/lab/bower_components/angular-toastr/bower.json"
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 55.0
 	},
 	"find_in_files":
 	{
@@ -713,7 +719,7 @@
 	"project": "mean-course.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 106.0
 	},
 	"save_all_on_build": true,
 	"select_file":

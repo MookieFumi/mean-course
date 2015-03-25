@@ -1,7 +1,9 @@
 (function () {
 
     function menuController ($state) {
-        this.isActive = function(state) {
+    	var vm = this;
+
+        vm.isActive = function(state) {
             return $state.is(state);
         };
     }

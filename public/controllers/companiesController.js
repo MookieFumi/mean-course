@@ -5,17 +5,25 @@
         this.owner = "Owner demo";
     }
 
-    function CompaniesController(companiesFactory, $state) {
-        this.companies = companiesFactory.getAll();
-        this.company = new Company();
-        
-        this.add = function() {
+    function CompaniesController(companiesFactory, notificationFactory, $state) {
+        var vm = this;
+
+        vm.companies = [];
+        vm.company = new Company();
+
+        companiesFactory.getAll().then(function(promise) {
+            vm.companies = promise.data;
+        }, function(promise) {
+            notificationFactory.error();
+        });
+
+        vm.add = function() {
             companiesFactory.add(this.company);
             $state.go('companies');
         }
     }
 
     angular.module('stackApp')
-        .controller('CompaniesController', ['companiesFactory', '$state', CompaniesController]);
+        .controller('CompaniesController', ['companiesFactory', 'notificationFactory', '$state', CompaniesController]);
 
 }());

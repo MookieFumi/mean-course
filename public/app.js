@@ -1,5 +1,5 @@
-angular.module('stackApp', ['ui.router'])
-    .config(function($stateProvider, $urlRouterProvider) {
+angular.module('stackApp', ['ui.router', 'ngToast'])
+    .config(['$stateProvider', '$urlRouterProvider', 'ngToastProvider', function($stateProvider, $urlRouterProvider, ngToast) {
         $urlRouterProvider.otherwise("/home");
 
         $stateProvider
@@ -23,4 +23,9 @@ angular.module('stackApp', ['ui.router'])
                 url: "/users",
                 templateUrl: "views/users/index.html",
             });
-    });
+
+        ngToast.configure({
+            verticalPosition: 'top',
+            horizontalPosition: 'right'
+        });
+    }]);

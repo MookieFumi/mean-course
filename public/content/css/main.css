@@ -3,9 +3,12 @@ html {
     min-height: 100%;
 }
 
-body {
-    font-family: 'Ubuntu', sans-serif;
+body {    
     margin-bottom: 60px;
+}
+
+* {
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .footer {
@@ -42,6 +45,11 @@ body > .container {
 .rounded > h2 {
     font-weight: bold;
     padding-top: 10px;
+}
+
+.rounded > p {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .rounded.rounded-white {

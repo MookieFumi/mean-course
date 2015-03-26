@@ -1,5 +1,7 @@
 // set DEBUG=mean-course & nodemon app.js
 
+'use strict';
+
 var express = require('express');
 var fs = require('fs');
 var path = require('path');
@@ -13,22 +15,22 @@ var morgan = require('morgan');
 var colors = require('colors');
 var app = express();
 
-var info = 'Current folder: ' + __dirname + '. Environment: ' + app.get('env');
+var info = 'Current folder: ' + process.cwd() + '. Environment: ' + app.get('env');
 console.log(info.yellow.bgBlue);
 
 configureLogger(app);
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(process.cwd(), 'views'));
 app.set('view engine', 'jade');
 
-app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(process.cwd() + '/public/favicon.ico'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(process.cwd(), 'public')));
 
 app.use('/', routes);
 
@@ -42,7 +44,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
+    app.use(function(err, req, res) {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -53,7 +55,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
@@ -137,14 +139,14 @@ function onListening() {
 
 function configureLogger(app) {
     //Morgan
-    var accessLogStream = fs.createWriteStream(__dirname + '/access.log', {
+    var accessLogStream = fs.createWriteStream(process.cwd() + '/access.log', {
         flags: 'a'
     });
 
     if (app.get('env') == 'production') {
         app.use(morgan('combined', {
             skip: function(req, res) {
-                return res.statusCode < 400
+                return res.statusCode < 400;
             },
             stream: accessLogStream
         }));

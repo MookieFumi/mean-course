@@ -1,0 +1,3 @@
+{
+    "predef": ["console", "process" ,"module", "require", "angular", "moment"]
+}

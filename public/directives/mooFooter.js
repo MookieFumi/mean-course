@@ -1,4 +1,5 @@
 (function() {
+    'use strict';
 
     function mooFooter($timeout) {
         return {
@@ -14,7 +15,7 @@
                     $scope.currentDateTime = moment();
                     var dateDiff = $scope.currentDateTime.diff($scope.loadDateTime);
                     $scope.timeLoaded = parseInt(moment.duration(dateDiff).asSeconds());
-                };
+                }
 
                 updateTimeLoaded();
             }

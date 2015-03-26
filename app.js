@@ -1,23 +1,28 @@
 // set DEBUG=mean-course & nodemon app.js
 
 var express = require('express');
+var fs = require('fs');
 var path = require('path');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var debug = require('debug')('mean-course:server');
 var http = require('http');
 var routes = require('./routes/index');
-
+var morgan = require('morgan');
+var colors = require('colors');
 var app = express();
+
+var info = 'Current folder: ' + __dirname + '. Environment: ' + app.get('env');
+console.log(info.yellow.bgBlue);
+
+configureLogger(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
@@ -34,7 +39,6 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-// error handlers
 
 // development error handler
 // will print stacktrace
@@ -58,10 +62,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
-
-//module.exports = app;
-
-
 /**
  * Get port from environment and store in Express.
  */
@@ -84,19 +84,19 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+    var port = parseInt(val, 10);
 
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
 
-  if (port >= 0) {
-    // port number
-    return port;
-  }
+    if (port >= 0) {
+        // port number
+        return port;
+    }
 
-  return false;
+    return false;
 }
 
 /**
@@ -104,27 +104,25 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+    var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use');
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
 }
 
 /**
@@ -132,9 +130,29 @@ function onError(error) {
  */
 
 function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+    var addr = server.address();
+    var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+    var text = 'Listening on ' + bind;
+    console.log(text.yellow.bgBlue);
+}
+
+function configureLogger(app) {
+    //Morgan
+    var accessLogStream = fs.createWriteStream(__dirname + '/access.log', {
+        flags: 'a'
+    });
+
+    if (app.get('env') == 'production') {
+        app.use(morgan('combined', {
+            skip: function(req, res) {
+                return res.statusCode < 400
+            },
+            stream: accessLogStream
+        }));
+    } else {
+        app.use(morgan('dev'));
+        app.use(morgan('combined', {
+            stream: accessLogStream
+        }));
+    }
 }

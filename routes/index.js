@@ -23,17 +23,24 @@ router.get('/help/:content', function(req, res, next) {
     });
 });
 
-router.get('/companies/getAll', function(req, res, next) {
-    res.json([{
-        name: 'Company 1',
-        owner: 'MookieFumi'
-    }, {
-        name: 'Company 2',
-        owner: 'RaniFumi'
-    }, {
-        name: 'Company 3',
-        owner: 'MontseFumi'
-    }]);
+
+
+/************************************************************/
+/******************* COMPANIES ROUTES ***********************/
+/************************************************************/
+
+var companies = [];
+
+router.get('/companies/getAll', function(req, res) {
+    res.json(companies);
+});
+
+router.post('/companies/add', function(req, res) {
+    companies.push({
+        name: req.body.name,
+        owner: req.body.owner
+    });
+    res.send();
 });
 
 module.exports = router;

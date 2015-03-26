@@ -18,7 +18,7 @@ var routes = require('./routes/index');
 
 var app = express();
 
-var info = 'Current folder: ' + process.cwd() + '. Environment: ' + app.get('env');
+var info = 'Current folder: ' + process.cwd() + '. Environment: ' + process.env.NODE_ENV;
 console.log(info.yellow.bgBlue);
 
 configureLogger(app);

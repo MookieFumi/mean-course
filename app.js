@@ -2,17 +2,20 @@
 
 'use strict';
 
+var bodyParser = require('body-parser');
+var colors = require('colors');
+var cookieParser = require('cookie-parser');
+var debug = require('debug')('mean-course:server');
 var express = require('express');
+var morgan = require('morgan');
+var favicon = require('serve-favicon');
+
 var fs = require('fs');
 var path = require('path');
-var favicon = require('serve-favicon');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var debug = require('debug')('mean-course:server');
 var http = require('http');
+
 var routes = require('./routes/index');
-var morgan = require('morgan');
-var colors = require('colors');
+
 var app = express();
 
 var info = 'Current folder: ' + process.cwd() + '. Environment: ' + app.get('env');

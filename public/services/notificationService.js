@@ -1,5 +1,5 @@
 (function() {
-    function notificationFactory(ngToast) {
+    function notificationService(ngToast) {
         var companies = [];
 
         return {
@@ -13,6 +13,6 @@
     }
 
     angular.module('stackApp')
-        .factory('notificationFactory', ['ngToast', notificationFactory]);
+        .factory('notificationService', ['ngToast', notificationService]);
 
 }());

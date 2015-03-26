@@ -1,7 +1,6 @@
 (function() {
 
-    function companiesFactory($http) {
-        var companies = [];
+    function companiesService($http) {
 
         return {
 
@@ -19,12 +18,22 @@
                 return promise;
             },
             add: function(company) {
-                companies.push(company);
+                var promise = $http.post('/companies/add', company)
+                    .success(function(data, status, headers, config) {
+                        //return data;
+                    })
+                    .error(function(data, status, headers, config) {
+                        return {
+                            "status": false
+                        };
+                    });
+
+                return promise;
             }
         };
     }
 
     angular.module('stackApp')
-        .factory('companiesFactory', ['$http', companiesFactory]);
+        .factory('companiesService', ['$http', companiesService]);
 
 }());

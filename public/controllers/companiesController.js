@@ -1,29 +1,25 @@
 (function() {
 
-    function Company() {
-        this.name = "Company demo";
-        this.owner = "Owner demo";
-    }
-
-    function CompaniesController(companiesFactory, notificationFactory, $state) {
+    function CompaniesController(companiesService, notificationService, $state) {
         var vm = this;
+        vm.company = {
+            name: "My company name",
+            owner: "My owner name"
+        };
 
-        vm.companies = [];
-        vm.company = new Company();
-
-        companiesFactory.getAll().then(function(promise) {
+        companiesService.getAll().then(function(promise) {
             vm.companies = promise.data;
         }, function(promise) {
-            notificationFactory.error();
+            notificationService.error();
         });
 
         vm.add = function() {
-            companiesFactory.add(this.company);
+            companiesService.add(vm.company);
             $state.go('companies');
         }
     }
 
     angular.module('stackApp')
-        .controller('CompaniesController', ['companiesFactory', 'notificationFactory', '$state', CompaniesController]);
+        .controller('CompaniesController', ['companiesService', 'notificationService', '$state', CompaniesController]);
 
 }());

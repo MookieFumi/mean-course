@@ -5,7 +5,7 @@
         return {
 
             getAll: function() {
-                var promise = $http.get('/companies/getAll')
+                var promise = $http.get('api/companies/getAll')
                     .success(function(data, status, headers, config) {
                         return data;
                     })
@@ -18,7 +18,7 @@
                 return promise;
             },
             add: function(company) {
-                var promise = $http.post('/companies/add', company)
+                var promise = $http.post('api/companies/add', company)
                     .success(function(data, status, headers, config) {
                         //return data;
                     })
